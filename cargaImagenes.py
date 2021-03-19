@@ -5,4 +5,4 @@ IRGB= cv2.imread("001.jpg")
 print(IRGB)
 print(IRGB.shape)
 
-print("a")
+IGS= cv2.cvtColor(IRGB, cv2.COLOR_BGR2GRAY)
