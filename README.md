@@ -1,2 +1,4 @@
 # HCAP2021
-a
+Repositorio Individual de la semana tec.
+
+
