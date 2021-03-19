@@ -1,16 +1,26 @@
 import numpy as np
 
-def convolucion(Imageno,Kernel):
-    dim = len(Imageno)-(len(Kernel)-1)
-    dim2= len(Imageno[0])-(len(Kernel[0])-1)
-    Resultado= np.zeros(dim,dim2)
-    
-    for in in range(len(Resultado)):
-        for j in range(len(Resultado[0])):
-            suma=0
-            for m in range(len(Kernel)):
-                for n in range(len(Kernel[0])):
-                    suma+= Kernel[m][n]* Imageno[m+i][n+j]
-            Resultado[i][j]=suma
-    return Resultado
+def convolucion(Ioriginal, kernel):
+	'''Método encargado de realizar una convolución a una imagen
+	Entrada:
+	Ioriginal - imagen original en forma de matríz
+	kernel -  kernel para barrer la imagen
+	Salida:
+	res - imagen resultante'''
+	#fr - filas, cr - columnas
+	fr = len(Ioriginal)-(len(kernel)-1)
+	cr = len(Ioriginal[0])-(len(kernel[0])-1)
+	res = np.zeros((fr, cr))
 
+	#filas, matríz resultado
+	for i in range(len(res)):
+		#columnas, matríz resultado
+		for j in range(len(res[0])):
+			suma = 0
+			#filas, kernel
+			for m in range(len(kernel)):
+				#columnas, kernel
+				for n in range(len(kernel[0])):
+					suma += kernel[m][n] * Ioriginal[m+i][n+j]
+			res[i][j] = suma
+	return res
